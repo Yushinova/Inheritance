@@ -10,6 +10,10 @@ namespace Academy
     {
         static void Main(string[] args)
         {
+            Teacher A = new Teacher("Ivanova", "Anna", 28, "C++", 85);
+            Group group = new Group();
+            group.AddTeacher(A);
+            group.ShowGroup();
         }
     }
 }
