@@ -25,27 +25,26 @@ namespace Academy
         }
         List<Teacher> GetTeachers() { return teachers; }
         List<Student> GetStudents() { return students; }
-        List<Graduate> GetGraduates() {  return graduates; }
-        public void ShowGroup()
+        List<Graduate> GetGraduates() { return graduates; }
+        public void ShowGroup()//надо бы разные для каждого сделать
         {
             Console.WriteLine("Teachers: ");
-            if(teachers.Count > 0)
+
+            foreach (var it in teachers)
             {
-                foreach (var it in teachers)
-                {
-                    Console.WriteLine(it.ToString());
-                }
+                Console.WriteLine(it.ToString());
             }
-            //Console.WriteLine("Students: ");
-            //foreach (var it in students)
-            //{
-            //    Console.WriteLine(it.ToString());
-            //}
-            //Console.WriteLine("Graduates: ");
-            //foreach (var it in teachers)
-            //{
-            //    Console.WriteLine(it.ToString());
-            //}
+
+            Console.WriteLine("Students: ");
+            foreach (var it in students)
+            {
+                Console.WriteLine(it.ToString());
+            }
+            Console.WriteLine("Graduates: ");
+            foreach (var it in graduates)
+            {
+                Console.WriteLine(it.ToString());
+            }
         }
     }
 }
