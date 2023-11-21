@@ -8,42 +8,21 @@ namespace Academy
 {
     internal class Group
     {
-        public List<Teacher> teachers = new List<Teacher>();
-        public List<Student> students = new List<Student>();
-        public List<Graduate> graduates = new List<Graduate>();
-        public void AddTeacher(Teacher teacher)//прежде чем добавлять, нужно выяснить нет ли его уже в списке!
+        public List<Human> group = new List<Human>();
+        public void AddHuman(Human human)//прежде чем добавлять, нужно выяснить нет ли его уже в списке!
         {
-            teachers.Add(teacher);
+            group.Add(human);
         }
-        public void AddStudent(Student student)
-        {
-            students.Add(student);
-        }
-        public void AddGraduate(Graduate graduate)
-        {
-            graduates.Add(graduate);
-        }
-        List<Teacher> GetTeachers() { return teachers; }
-        List<Student> GetStudents() { return students; }
-        List<Graduate> GetGraduates() { return graduates; }
+     
+        public List<Human> GetGroup() { return group; }
+       
         public void ShowGroup()//надо бы разные для каждого сделать
         {
             Console.WriteLine("Teachers: ");
 
-            foreach (var it in teachers)
+            foreach (var it in group)
             {
-                Console.WriteLine(it.ToString());
-            }
-
-            Console.WriteLine("Students: ");
-            foreach (var it in students)
-            {
-                Console.WriteLine(it.ToString());
-            }
-            Console.WriteLine("Graduates: ");
-            foreach (var it in graduates)
-            {
-                Console.WriteLine(it.ToString());
+                Console.WriteLine(it.GetType()+": "+it.ToString());
             }
         }
     }

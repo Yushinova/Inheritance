@@ -24,5 +24,9 @@ namespace Academy
         {
             return $"{base.ToString()}  специальность: {Speciality} Опыт: {Experience}";
         }
+        public override string ToWrite()
+        {
+            return $"{base.ToWrite()},{Speciality},{Experience}";
+        }
     }
 }

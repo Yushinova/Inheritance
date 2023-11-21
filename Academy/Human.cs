@@ -24,7 +24,11 @@ namespace Academy
         }
         public override string ToString()
         {
-            return $"{LastName} {FirstName} {Age} лет\t";
+            return $"Фамилия: {LastName} Имя: {FirstName} Возраст: {Age}";
+        }
+        public virtual string ToWrite()
+        {
+            return $"{LastName},{FirstName},{Age}";
         }
     }
 }

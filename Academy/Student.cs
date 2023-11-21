@@ -30,5 +30,9 @@ namespace Academy
         {
             return $"{base.ToString()} Специальность: {Speciality} Группа: {Group} Успеваемость: {Rating} Посещаеость: {Attendance}";
         }
+        public override string ToWrite()
+        {
+            return $"{base.ToWrite()},{Speciality},{Group},{Rating},{Attendance}";
+        }
     }
 }

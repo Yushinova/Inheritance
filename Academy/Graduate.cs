@@ -23,5 +23,9 @@ namespace Academy
         {
             return $"{base.ToString()} Тема диплома: {Topic}";
         }
+        public override string ToWrite()
+        {
+            return $"{base.ToWrite()},{Topic}";
+        }
     }
 }
