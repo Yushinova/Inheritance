@@ -18,8 +18,6 @@ namespace Academy
        
         public void ShowGroup()//надо бы разные для каждого сделать
         {
-            Console.WriteLine("Teachers: ");
-
             foreach (var it in group)
             {
                 Console.WriteLine(it.GetType()+": "+it.ToString());
