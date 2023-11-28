@@ -18,5 +18,9 @@ namespace Goods
         {
             Console.WriteLine($"{Type}: Вес: {Weight} кг. {Name} Цена: {Price} руб. {Quantity} шт.");
         }
+        public override string ToString()
+        {
+            return base.ToString()+$" Вес: {Weight} кг.";
+        }
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Goods
 {
-    abstract class Food: Product
+    abstract class Food : Product
     {
         public string Type { get; set; }
         public Food(string name, double price, int quantity, string type) : base(name, price, quantity)
         {
-        Type = type;
+            Type = type;
         }
         public override void AddPruduct(int quantity)
         {
@@ -21,6 +21,10 @@ namespace Goods
         {
             if (quantity > Quantity) Console.WriteLine("Не хватает товара");
             else Quantity -= quantity;
+        }
+        public override string ToString()
+        {
+            return $"{Type} " + base.ToString();
         }
     }
 }

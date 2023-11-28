@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Goods
 {
-    class Bread:Food
+    class Milk: Food
     {
-        public Bread(string name, double price, int quantity, string type) : base(name, price, quantity, type) { }
+        public Milk(string name, double price, int quantity, string type) : base(name, price, quantity, type) { }
         public override void Info()
         {
             Console.WriteLine($"{Type}: {Name} Цена: {Price} руб. {Quantity} шт.");
@@ -17,6 +17,5 @@ namespace Goods
         {
             return base.ToString();
         }
-        //public override string WriteFile();//??
     }
 }
