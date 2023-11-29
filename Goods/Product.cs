@@ -19,11 +19,13 @@ namespace Goods
         }
         public abstract void AddPruduct(int quantity);
         public abstract void SalePruduct(int quantity);
+       
         public abstract void Info();
         public override string ToString()
         {
             return $"{Name} Цена: {Price} руб. {Quantity} шт.";
         }
+       
         //public abstract string WriteFile();//??
     }
 }

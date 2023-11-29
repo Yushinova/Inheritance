@@ -20,10 +20,11 @@ namespace Goods
             do
             {
                 int ind = choiseMenu(choice_menu, 10, 5);
-                if (ind == 0)
+                if (ind == 0)//поступление товара
                 {
                     Console.Clear();
                     ind = choiseMenu(main_menu, 10, 5);
+                    Console.SetCursorPosition(0, 13);
                     switch (ind)
                     {
                         case 0:
@@ -37,7 +38,7 @@ namespace Goods
                                 Console.Write("Количество: ");
                                 quantity = Convert.ToInt32(Console.ReadLine());
                                 Chicken chicken = new Chicken(name, price, quantity, "Курица", weight);
-                                Proverka(market, chicken, quantity);
+                                market.Add(chicken);
                                 break;
                             }
                         case 1:
@@ -49,7 +50,7 @@ namespace Goods
                                 Console.Write("Количество: ");
                                 quantity = Convert.ToInt32(Console.ReadLine());
                                 Milk milk = new Milk(name, price, quantity, "Молоко");
-                                Proverka(market, milk, quantity);
+                                market.Add(milk);
                                 break;
                             }
                         case 2:
@@ -61,7 +62,7 @@ namespace Goods
                                 Console.Write("Количество: ");
                                 quantity = Convert.ToInt32(Console.ReadLine());
                                 Bread bread = new Bread(name, price, quantity, "Хлеб");
-                                Proverka(market, bread, quantity);
+                                market.Add(bread);
                                 break;
                             }
                         case 3:
@@ -77,7 +78,7 @@ namespace Goods
                                 Console.Write("Гендер: ");
                                 gender = Convert.ToString(Console.ReadLine());
                                 Trousers trousers = new Trousers(name, price, quantity, size, gender);
-                                Proverka(market, trousers, quantity);
+                                market.Add(trousers);
                                 break;
                             }
                         case 4:
@@ -91,7 +92,7 @@ namespace Goods
                                 Console.Write("Размер: ");
                                 size = Convert.ToInt32(Console.ReadLine());
                                 Dress dress = new Dress(name, price, quantity, size);
-                                Proverka(market, dress, quantity);
+                                market.Add(dress);
                                 break;
                             }
                         case 5:
@@ -109,16 +110,20 @@ namespace Goods
                                 Console.Write("Наименование: ");
                                 season = Convert.ToString(Console.ReadLine());
                                 Suit suit = new Suit(name, price, quantity, size, gender, season);
-                                Proverka(market, suit, quantity);
+                                market.Add(suit);
                                 break;
                             }
                     }
 
                 }
-                else
+                else//продажа
                 {
-                    ind = choiseMenu(market, 10, 5);
-                    Console.WriteLine(ind);
+                    ind = choiseMenu(market, 10, 20);
+                    Console.SetCursorPosition(50, 20);
+                    Console.Write("Количество: ");
+                    quantity = Convert.ToInt32(Console.ReadLine());
+                    market[ind].SalePruduct(quantity);
+                    Console.WriteLine(market[ind]);
                 }
                 foreach (var item in market)
                 {
@@ -126,18 +131,6 @@ namespace Goods
                 }
             } while (true);
 
-        }
-        static void Proverka(List<Product> market, Product obj, int quantity)//если вносится товар который уже есть в магазине, то прибавляется только количество
-        {
-            if (market.Count == 0) market.Add(obj);
-            else
-            {
-                foreach (var item in market)
-                {
-                    if (item.Equals(obj)) item.AddPruduct(quantity);
-                    else market.Add(obj);
-                }
-            }
         }
         static void printMenu<T>(List<T> masMenu, int punct, int X, int Y)
         {

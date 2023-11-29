@@ -15,9 +15,10 @@ namespace Goods
             Gender = gender;
             Season = season;
         }
+       
         public override void Info()
         {
-            Console.WriteLine($"{Gender}: {Name} Размер: {Size} Цена: {Price} руб. {Quantity} шт. Сезон: {Season}");
+            Console.WriteLine($"{Gender}: Костюм: {Name} Размер: {Size} Цена: {Price} руб. {Quantity} шт. Сезон: {Season}");
         }
         public override string ToString()
         {

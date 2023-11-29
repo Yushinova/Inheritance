@@ -14,6 +14,7 @@ namespace Goods
             Weight = weight;
             Price *= Weight;//цена за кг переводим в цену за шт
         }
+      
         public override void Info()
         {
             Console.WriteLine($"{Type}: Вес: {Weight} кг. {Name} Цена: {Price} руб. {Quantity} шт.");

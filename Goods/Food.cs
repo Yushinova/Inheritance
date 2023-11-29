@@ -13,9 +13,10 @@ namespace Goods
         {
             Type = type;
         }
+       
         public override void AddPruduct(int quantity)
         {
-            Quantity += quantity;
+          Quantity += quantity;
         }
         public override void SalePruduct(int quantity)
         {
