@@ -11,19 +11,20 @@ namespace Goods
     {
         static void Main(string[] args)
         {
-            List<string> main_menu = new List<string>{ " Курица ", " Молоко ", " Хлеб   ", " Брюки  ", " Платье ", " Костюм " };
-            List<string> choice_menu = new List<string>{ "Приход товара", "Продажа     " };
+            List<string> main_menu = new List<string> { " Курица ", " Молоко ", " Хлеб   ", " Брюки  ", " Платье ", " Костюм " };
+            List<string> choice_menu = new List<string> { "Приход товара", "Продажа      " };
             List<Product> market = new List<Product>();
             string name, gender, season;
-            double price, weight;
+            double price, weight, fat;
             int quantity, size;
+            ConsoleKey key;
             do
             {
-                int ind = choiseMenu(choice_menu, 10, 5);
+                int ind = choiseMenu(choice_menu, 1, 5);
                 if (ind == 0)//поступление товара
                 {
                     Console.Clear();
-                    ind = choiseMenu(main_menu, 10, 5);
+                    ind = choiseMenu(main_menu, 15, 5);
                     Console.SetCursorPosition(0, 13);
                     switch (ind)
                     {
@@ -37,8 +38,8 @@ namespace Goods
                                 price = Convert.ToDouble(Console.ReadLine());
                                 Console.Write("Количество: ");
                                 quantity = Convert.ToInt32(Console.ReadLine());
-                                Chicken chicken = new Chicken(name, price, quantity, "Курица", weight);
-                                market.Add(chicken);
+                                Chicken chicken = new Chicken { Name = name, Price = price, Quantity = quantity, Type = "Курица", Weight = weight };
+                                Prov(market, chicken);
                                 break;
                             }
                         case 1:
@@ -49,8 +50,10 @@ namespace Goods
                                 price = Convert.ToDouble(Console.ReadLine());
                                 Console.Write("Количество: ");
                                 quantity = Convert.ToInt32(Console.ReadLine());
-                                Milk milk = new Milk(name, price, quantity, "Молоко");
-                                market.Add(milk);
+                                Console.Write("Жирность: ");
+                                fat = Convert.ToDouble(Console.ReadLine());
+                                Milk milk = new Milk { Name = name, Price = price, Quantity = quantity, Type = "Молоко", Fat = fat };
+                                Prov(market, milk);
                                 break;
                             }
                         case 2:
@@ -61,8 +64,8 @@ namespace Goods
                                 price = Convert.ToDouble(Console.ReadLine());
                                 Console.Write("Количество: ");
                                 quantity = Convert.ToInt32(Console.ReadLine());
-                                Bread bread = new Bread(name, price, quantity, "Хлеб");
-                                market.Add(bread);
+                                Bread bread = new Bread { Name = name, Price = price, Quantity = quantity, Type = "Хлеб" };
+                                Prov(market, bread);
                                 break;
                             }
                         case 3:
@@ -77,8 +80,8 @@ namespace Goods
                                 size = Convert.ToInt32(Console.ReadLine());
                                 Console.Write("Гендер: ");
                                 gender = Convert.ToString(Console.ReadLine());
-                                Trousers trousers = new Trousers(name, price, quantity, size, gender);
-                                market.Add(trousers);
+                                Trousers trousers = new Trousers { Name = name, Price = price, Quantity = quantity, Type = "Брюки", Size = size, Gender = gender };
+                                Prov(market, trousers);
                                 break;
                             }
                         case 4:
@@ -91,8 +94,10 @@ namespace Goods
                                 quantity = Convert.ToInt32(Console.ReadLine());
                                 Console.Write("Размер: ");
                                 size = Convert.ToInt32(Console.ReadLine());
-                                Dress dress = new Dress(name, price, quantity, size);
-                                market.Add(dress);
+                                Console.Write("Сезон: ");
+                                season = Convert.ToString(Console.ReadLine());
+                                Dress dress = new Dress { Name = name, Price = price, Quantity = quantity, Type = "Платье", Size = size, Season = season };
+                                Prov(market, dress);
                                 break;
                             }
                         case 5:
@@ -107,10 +112,10 @@ namespace Goods
                                 size = Convert.ToInt32(Console.ReadLine());
                                 Console.Write("Гендер: ");
                                 gender = Convert.ToString(Console.ReadLine());
-                                Console.Write("Наименование: ");
+                                Console.Write("Сезон: ");
                                 season = Convert.ToString(Console.ReadLine());
-                                Suit suit = new Suit(name, price, quantity, size, gender, season);
-                                market.Add(suit);
+                                Suit suit = new Suit { Name = name, Price = price, Quantity = quantity, Type = "Костюм", Size = size, Gender = gender, Season = season };
+                                Prov(market, suit);
                                 break;
                             }
                     }
@@ -118,19 +123,38 @@ namespace Goods
                 }
                 else//продажа
                 {
-                    ind = choiseMenu(market, 10, 20);
-                    Console.SetCursorPosition(50, 20);
+                    Console.Clear();
+                    ind = choiseMenu(market, 1, 5);
+                    Console.SetCursorPosition(45, 5);
                     Console.Write("Количество: ");
                     quantity = Convert.ToInt32(Console.ReadLine());
                     market[ind].SalePruduct(quantity);
-                    Console.WriteLine(market[ind]);
+                    //Console.WriteLine(market[ind]);
                 }
-                foreach (var item in market)
+                Console.SetCursorPosition(0, 20);
+                foreach (var item in market)//смотрим изменения в магазине
                 {
-                    item.Info();
+                    Console.WriteLine(item);
                 }
-            } while (true);
-
+                key = Console.ReadKey(true).Key;
+            } while (key != ConsoleKey.Escape);
+        }
+        static void Prov(List<Product> prod, Product obj)//товары поступают через проверку, если такой товар есть, прибавляется количчество
+        {
+            if (prod.Count == 0) prod.Add(obj);
+            else
+            {
+                for (global::System.Int32 i = 0; i < prod.Count; i++)
+                {
+                    if (prod[i].CompareP(obj))
+                    {
+                        prod[i].AddPruduct(obj.Quantity);
+                        Console.WriteLine("Comp: " + prod[i].CompareP(obj));
+                    }
+                    else prod.Add(obj);
+                    break;
+                }
+            }
         }
         static void printMenu<T>(List<T> masMenu, int punct, int X, int Y)
         {
@@ -147,7 +171,7 @@ namespace Goods
                     Console.BackgroundColor = ConsoleColor.White;
                 }
                 Console.SetCursorPosition(X, Y + i);
-                 Console.Write(masMenu[i]);
+                Console.Write(masMenu[i]);
             }
             Console.ResetColor();
         }

@@ -8,15 +8,10 @@ namespace Goods
 {
     class Milk: Food
     {
-        public Milk(string name, double price, int quantity, string type) : base(name, price, quantity, type) { }
-      
-        public override void Info()
-        {
-            Console.WriteLine($"{Type}: {Name} Цена: {Price} руб. {Quantity} шт.");
-        }
+        public double Fat {  get; set; }
         public override string ToString()
         {
-            return base.ToString();
+            return base.ToString() + $" {Fat} %";
         }
     }
 }

@@ -8,23 +8,11 @@ namespace Goods
 {
     abstract class Clothes:Product
     {
+        public string Type { get; set; }
         public int Size { get; set; }
-        public Clothes(string name, double price, int quantity, int size) : base(name, price, quantity)
-        {
-            Size = size;
-        }
-        public override void AddPruduct(int quantity)
-        {
-            Quantity += quantity;
-        }
-        public override void SalePruduct(int quantity)
-        {
-            if (quantity > Quantity) Console.WriteLine("Не хватает товара");
-            else Quantity -= quantity;
-        }
         public override string ToString()
         {
-            return $"Размер: {Size} " + base.ToString();
+            return $"{Type}: Размер: {Size} " + base.ToString();
         }
     }
 }

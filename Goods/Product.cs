@@ -11,21 +11,23 @@ namespace Goods
         public string Name {  get; set; }
         public double Price {  get; set; }
         public int Quantity { get; set; }
-        public Product(string name, double price, int quantity)
+        public void AddPruduct(int quantity)
         {
-            Name= name;
-            Price= price;
-            Quantity= quantity;
+            Quantity += quantity;
         }
-        public abstract void AddPruduct(int quantity);
-        public abstract void SalePruduct(int quantity);
-       
-        public abstract void Info();
+        public void SalePruduct(int quantity)
+        {
+            if (quantity > Quantity) Console.WriteLine("Не хватает товара");
+            else Quantity -= quantity;
+        }
+        public bool CompareP(Product obj)//сравнение продукта по имени и цене для проверки повторяющихся продуктов
+        {
+            if (this.Name == obj.Name && this.Price == obj.Price) return true;
+            else return false;
+        }
         public override string ToString()
         {
             return $"{Name} Цена: {Price} руб. {Quantity} шт.";
         }
-       
-        //public abstract string WriteFile();//??
     }
 }

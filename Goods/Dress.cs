@@ -8,15 +8,10 @@ namespace Goods
 {
     class Dress:Clothes
     {
-        public Dress(string name, double price, int quantity, int size) : base(name, price, quantity, size) { }
-      
-        public override void Info()
-        {
-            Console.WriteLine($"Платье: {Name} Размер: {Size} Цена: {Price} руб. {Quantity} шт.");
-        }
+        public string Season { get; set; }
         public override string ToString() 
         {
-            return base.ToString();
+            return base.ToString() + $" Сезон: {Season} ";
         }
     }
     
