@@ -17,8 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goods Interface", "Goods In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyEvents", "MyEvents\MyEvents.csproj", "{2257BC11-5E49-4C5C-90D2-663DEC553A4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goods Stand Interface", "..\..\..\Desktop\Goods Stand Interface\Goods Stand Interface.csproj", "{807866A5-BA71-4165-B58A-9C8860E15FBD}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,14 +81,6 @@ Global
 		{2257BC11-5E49-4C5C-90D2-663DEC553A4E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2257BC11-5E49-4C5C-90D2-663DEC553A4E}.Release|x86.ActiveCfg = Release|Any CPU
 		{2257BC11-5E49-4C5C-90D2-663DEC553A4E}.Release|x86.Build.0 = Release|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Debug|x86.Build.0 = Debug|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Release|x86.ActiveCfg = Release|Any CPU
-		{807866A5-BA71-4165-B58A-9C8860E15FBD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
