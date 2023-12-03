@@ -8,7 +8,6 @@ namespace Goods
 {
     abstract class Clothes : Product
     {
-        public string Type { get; set; }
         public int Size { get; set; }
         public override string ToString()
         {

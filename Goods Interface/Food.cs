@@ -8,7 +8,6 @@ namespace Goods
 {
     abstract class Food : Product
     {
-        public string Type { get; set; }
         public override string ToString()
         {
             return $"{Type}: {Name} Цена: {Price} руб. {Quantity} шт.";

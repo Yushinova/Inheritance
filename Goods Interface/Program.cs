@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Goods_Interface;
 namespace Goods
 {
     internal class Program
@@ -12,7 +12,7 @@ namespace Goods
         static void Main(string[] args)
         {
             List<string> main_menu = new List<string> { " Курица ", " Молоко ", " Хлеб   ", " Брюки  ", " Платье ", " Костюм " };
-            List<string> choice_menu = new List<string> { "Приход товара", "Продажа      " };
+            List<string> choice_menu = new List<string> { "Приход товара", "Сортировка   " };
             List<Product> market = new List<Product>();
             string name, gender, season;
             double price, weight, fat;
@@ -121,15 +121,29 @@ namespace Goods
                     }
 
                 }
-                else//продажа
+                else//сортировка стандартные интерфейсы
                 {
                     Console.Clear();
-                    ind = choiseMenu(market, 1, 5);
-                    Console.SetCursorPosition(45, 5);
-                    Console.Write("Количество: ");
-                    quantity = Convert.ToInt32(Console.ReadLine());
-                    market[ind].SalePruduct(quantity);
-                    //Console.WriteLine(market[ind]);
+                    if(market.Count>0)
+                    {
+                        Console.WriteLine("Sort price");
+                        Market m = new Market(market);//
+                        m.Sort();
+                        foreach (Product item in m)
+                        {
+                            Console.WriteLine(item);
+                        }
+                        Console.WriteLine("Sort Type");
+                        m.Sort(new SortType());
+                        foreach (Product item in m)
+                        {
+                            Console.WriteLine(item);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Заполните товары");
+                    }
                 }
                 Console.SetCursorPosition(0, 20);
                 foreach (var item in market)//смотрим изменения в магазине
