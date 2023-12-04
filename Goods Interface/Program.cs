@@ -12,7 +12,7 @@ namespace Goods
         static void Main(string[] args)
         {
             List<string> main_menu = new List<string> { " Курица ", " Молоко ", " Хлеб   ", " Брюки  ", " Платье ", " Костюм " };
-            List<string> choice_menu = new List<string> { "Приход товара", "Сортировка   " };
+            List<string> choice_menu = new List<string> { "Приход товара", "Продажа      " };
             List<Product> market = new List<Product>();
             string name, gender, season;
             double price, weight, fat;
