@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Goods;
 namespace Goods_Interface
 {
-    class SortType : IComparer
+    class SortType : IComparer<Product>
     {
-        public int Compare(object x, object y)
+        public int Compare(Product x, Product y)
         {
             if (x is Product && y is Product)
             {

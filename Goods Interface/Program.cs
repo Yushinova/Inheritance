@@ -124,28 +124,22 @@ namespace Goods
                 else//сортировка стандартные интерфейсы
                 {
                     Console.Clear();
-                    if(market.Count>0)
-                    {
-                        Console.WriteLine("Sort price");
-                        Market m = new Market(market);//
-                        m.Sort();
-                        foreach (Product item in m)
-                        {
-                            Console.WriteLine(item);
-                        }
-                        Console.WriteLine("Sort Type");
-                        m.Sort(new SortType());
-                        foreach (Product item in m)
-                        {
-                            Console.WriteLine(item);
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Заполните товары");
-                    }
+                    ind = choiseMenu(market, 1, 5);
+                    Console.SetCursorPosition(45, 5);
+                    Console.Write("Количество: ");
+                    quantity = Convert.ToInt32(Console.ReadLine());
+                    market[ind].SalePruduct(quantity);
                 }
                 Console.SetCursorPosition(0, 20);
+                market.Sort();
+                Console.WriteLine("After sort Price:");
+                foreach (var item in market)//смотрим изменения в магазине
+                {
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine("***********************");
+                Console.WriteLine("After sort Type:");
+                market.Sort(new SortType());
                 foreach (var item in market)//смотрим изменения в магазине
                 {
                     Console.WriteLine(item);
