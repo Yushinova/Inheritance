@@ -8,7 +8,7 @@ namespace ZOO
 {
     public class MyPrint
     {
-        char[,] mas {  get; set; }
+        char[,] mas = null;
         public MyPrint(char[,] arr)
         {
             mas = arr;
