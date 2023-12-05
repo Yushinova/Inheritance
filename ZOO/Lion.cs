@@ -21,7 +21,9 @@ namespace ZOO
                 { '*', '+', '+', '+', '+', '+', '+', '+', '+', '+', '*', '*', '*' },
                 { '*', '+', '+', '*', '*', '*', '+', '+', '*', '*', '*', '*', '*' }
             };
-            Print(lion);
+            MyPrint print= new MyPrint(lion);
+            print.Print();
+           
         }
         public override void Eat()
         {

@@ -27,7 +27,8 @@ namespace ZOO
                 { '*', '*', '*', '*', '+', '+', '+', '-', '+', '+', '+', '+', '+','*','*' },
                 { '*', '*', '*', '*', '+', '-', '+', '*', '*', '*', '+', '+', '-','*','*' }
             };
-            Print(giraffe);
+            MyPrint print = new MyPrint(giraffe);
+            print.Print();
         }
         public override void Eat()
         {
