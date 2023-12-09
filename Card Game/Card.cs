@@ -30,7 +30,7 @@ namespace Card_Game
                 Console.BackgroundColor = ConsoleColor.White;
                 Console.ForegroundColor = ConsoleColor.Black;
             }
-            Console.Write($"{Convert.ToChar(Suit)} {Type_Card} |");
+            Console.Write($"{Convert.ToChar(Suit)}{Type_Card}|");
             Console.ResetColor();
         }
     }

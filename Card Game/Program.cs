@@ -11,11 +11,7 @@ namespace Card_Game
         static void Main(string[] args)
         {
            Game d = new Game();
-            d.SetCard_deck();
-            d.ShowCards();
-            Console.WriteLine("After Mix");
-            d.MixCards();
-            d.ShowCards();
+            d.NewGame();
         }
     }
 }
