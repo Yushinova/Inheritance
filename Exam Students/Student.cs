@@ -25,8 +25,8 @@ namespace Exam_Students
         }
         public void Exam(string exam_work)
         {
-            this.SetAverage();
             WriteLine($" student {LastName} do {exam_work} ");//обработчик события экзамен
+            this.SetAverage();
             System.Threading.Thread.Sleep(150);
         }
        
