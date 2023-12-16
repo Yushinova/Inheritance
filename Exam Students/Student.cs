@@ -12,15 +12,22 @@ namespace Exam_Students
         public string LastName { get; set; }
         public DateTime BD { get; set; }
         public int Average { get; set; }
-
+        public static Random r;
+        public void SetAverage()
+        {
+            r = new Random();
+            Average = r.Next(5, 12);
+        }
         public override string ToString()
         {
-            return $"{FirstName,15} {LastName,15} {BD.ToShortDateString(),17} ";
+            return $"{FirstName,15} {LastName,15} Оценка: {Average} ";
 
         }
         public void Exam(string exam_work)
         {
+            this.SetAverage();
             WriteLine($" student {LastName} do {exam_work} ");//обработчик события экзамен
+            System.Threading.Thread.Sleep(150);
         }
        
     }

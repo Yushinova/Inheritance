@@ -12,7 +12,7 @@ namespace Exam_Students
         
         static void Main(string[] args)
         {
-            Random rn = new Random();
+           // Random rn = new Random();
             List<Student> students = new List<Student>
                {
                     new Student{FirstName="Ivan", LastName="Ivanov", BD=new DateTime(2000,1,1)},
@@ -22,30 +22,12 @@ namespace Exam_Students
                     new Student{FirstName="Andre", LastName="Simonov", BD=new DateTime(2003,7,19) }
                 };
             Teacher t = new Teacher();
+           
             foreach (var item in students)
             {
                 t.event_exam += item.Exam;
             }
-            t.Exam("Ex 1");
-            foreach (var item in students)
-            {
-                item.Average = rn.Next(1, 12);
-            }
-            WriteLine("************");
-            foreach (var item in students)
-            {
-                WriteLine($"{item.LastName} {item.Average}");
-            }
-            WriteLine("************");
-            foreach (var item in students)
-            {
-                if (item.Average <= 7)
-                {
-                    t.event_exam -= item.Exam;
-                }
-            }
-            t.Exam("exam 2");
-
+            t.Exam(students, 3);
         }
     }
 

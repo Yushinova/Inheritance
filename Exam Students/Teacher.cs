@@ -9,45 +9,49 @@ namespace Exam_Students
     public delegate void DelegateEx(string str);
     internal class Teacher//источник события
     {
-       
+
         public event DelegateEx event_exam;
         public string FirstName { get; set; }
         public string LastName { get; set; }
-
         public void Exam(string exam_work)
         {
-            if(event_exam != null)
+            if (event_exam != null)
             {
                 event_exam(exam_work);
             }
-            //foreach (var item in sort_ev.Keys)
-            //{
-            //    if (sort_ev[item] != null)
-            //    {
-            //        sort_ev[item](str);
-            //    }
-            //}
         }
-        //public event DelegateEx event_exam
-        //{
-        //    add
-        //    {
-        //        for (int key; ;)
-        //        {
-        //            key = rn.Next();
-        //            if (!sort_ev.ContainsKey(key))
-        //            {
+        public void Exam(List<Student> students, int num)
+        {
+            for (int i = 0; i < num; i++)
+            {
+                this.Exam($"Задача: {i + 1}");
+                Console.WriteLine($"Итог экзамена {i + 1}");
+                Console.WriteLine("***********************");
+                foreach (Student item in students)
+                {
+                    if (item.Average < 7)
+                    {
+                        event_exam -= item.Exam;
 
-        //                sort_ev.Add(key, value);
-        //                break;
-        //            }
-        //        }
-        //    }
-        //    remove
-        //    {
-        //        sort_ev.RemoveAt(sort_ev.IndexOfValue(value));
-        //    }
-        //}
-        //SortedList<int, DelegateEx> sort_ev = new SortedList<int, DelegateEx>();
+                    }
+                    if (item.Average >= 7)
+                    {
+                        Console.Write("Студент прошел:");
+                        Console.WriteLine(item); 
+                    }
+                    else
+                    {
+                        Console.Write("Студент отчислен:");
+                        Console.WriteLine(item);
+                    }
+                }
+            }
+            Console.WriteLine("***********************");
+            Console.WriteLine("Поступили: "); 
+            foreach (var item in students)
+            {
+                if(item.Average >= 7) { Console.WriteLine(item); }
+            }
+        }
     }
 }
